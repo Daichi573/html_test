@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+ <head>
+   <meta charset="utf-8">
+   <title>スライド</title>
+   <style>
+    body{
+      text-align:center;
+    }
+    #slide img{
+      margin:auto;
+      display:none;
+    }
+   </style>
+ </head>
+ <body>
+  <div id="slide">
+    <img src="images/sample1.jpg">
+    <img src="images/sample2.jpg">
+    <img src="images/sample3.jpg">
+  </div>
+  <button id="rev">前へ</button>
+  <button id="next">次へ</button>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script>
+   const images = $('#slide img');
+   let counter = 0;
+   let index = 0;
+   images.eq(index).show();
+   $('#next').click(()=>{
+     images.eq(index).hide();
+     index= ++counter%images.length;
+     images.eq(index).fadeIn();
+   })
+   $('#rev').click(()=>{
+     images.eq(index).hide();
+     index= --counter%images.length;
+     images.eq(index).fadeIn();
+   })
+  </script>
+ </body>
+</html>
